@@ -4,10 +4,17 @@
  */
 package br.eti.romel.rfs.core;
 
-import com.thoughtworks.xstream.*;
-import java.io.*;
-import java.util.*;
-import java.util.logging.*;
+import com.thoughtworks.xstream.XStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.UUID;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class RFSFile implements RFS {
 
@@ -97,7 +104,7 @@ public class RFSFile implements RFS {
 
                 new XStream().toXML(fileInfo, new FileWriter(nomeArquivoMeta));
                 FileOutputStream destino = new FileOutputStream(nomeArquivoDestino);
-                byte[] buffer = new byte[10240];
+                byte[] buffer = new byte[KILOBYTE];
 
                 while (file.read(buffer) > 0) {
                     destino.write(buffer);
@@ -113,4 +120,5 @@ public class RFSFile implements RFS {
 
         return uuid;
     }
+    private static final int KILOBYTE = 10240;
 }

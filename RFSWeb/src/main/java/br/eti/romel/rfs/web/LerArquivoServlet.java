@@ -3,10 +3,10 @@
  */
 package br.eti.romel.rfs.web;
 
-import java.io.*;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.*;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,7 +30,7 @@ public class LerArquivoServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
 
-        byte[] buffer = new byte[10240];
+        byte[] buffer = new byte[KILOBYTE];
         FileOutputStream fos = new FileOutputStream("/Users/cromel/NetBeansProjects/RFS/uploaded.jpg");
 
         while (request.getInputStream().read(buffer) > 0) {
@@ -43,12 +43,12 @@ public class LerArquivoServlet extends HttpServlet {
         for (Map.Entry<String, String> entry : parameterMap.entrySet()) {
             String chave = entry.getKey();
             String valor = entry.getValue();
-            out.printf("<tr><td>Chave</td><td>%s</td><td>Valor</td><td>%s</td></tr>\n", chave, valor);
+            out.println(String.format("<tr><td>Chave</td><td>%s</td><td>Valor</td><td>%s</td></tr>", chave, valor));
         }
         out.println("</table>");
         try {
 
-            System.out.println(request.getInputStream().toString());
+            System.out.print(request.getInputStream().toString());
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -63,6 +63,7 @@ public class LerArquivoServlet extends HttpServlet {
             out.close();
         }
     }
+    private static final int KILOBYTE = 10240;
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

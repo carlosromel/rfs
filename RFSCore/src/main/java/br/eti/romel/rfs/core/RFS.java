@@ -3,21 +3,22 @@
  */
 package br.eti.romel.rfs.core;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
-import java.util.*;
+import java.util.UUID;
 
 public interface RFS {
 
-    public UUID setFile(String nomeArquivo) throws FileNotFoundException;
+    UUID setFile(String nomeArquivo) throws FileNotFoundException;
 
-    public UUID setFile(File arquivo) throws FileNotFoundException;
+    UUID setFile(File arquivo) throws FileNotFoundException;
 
-    public UUID setFile(InputStream arquivo, RFSInfo info);
+    UUID setFile(InputStream arquivo, RFSInfo info);
 
-    public String getPath(UUID uuid);
+    String getPath(UUID uuid);
 
-    public InputStream getFile(UUID uuid) throws FileNotFoundException;
+    InputStream getFile(UUID uuid) throws FileNotFoundException;
 
-    public RFSInfo getFileInfo(UUID uuid) throws FileNotFoundException;
+    RFSInfo getFileInfo(UUID uuid) throws FileNotFoundException;
 }

@@ -3,10 +3,8 @@
  */
 package br.eti.romel.rfs.core;
 
-import com.thoughtworks.xstream.annotations.*;
-import java.math.*;
-import java.util.*;
-import javax.xml.bind.annotation.*;
+import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -99,7 +97,7 @@ public class RFSInfo {
                 + "        destinationPath:'%s',\n"
                 + "        size...........:'%s',\n"
                 + "        type...........:'%s'\n"
-                + "       }\n";
+                + "       }";
         return String.format(formato,
                              author,
                              creationDate,
