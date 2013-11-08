@@ -90,14 +90,14 @@ public class RFSInfo {
     @Override
     public String toString() {
         final String formato = ""
-                + "RFSInfo{author.........:'%s',\n"
-                + "        creationDate...:'%s',\n"
-                + "        fileName.......:'%s',\n"
-                + "        virtualPath....:'%s',\n"
-                + "        destinationPath:'%s',\n"
-                + "        size...........:'%s',\n"
-                + "        type...........:'%s'\n"
-                + "       }";
+                               + "RFSInfo{author.........:'%s',%n"
+                               + "        creationDate...:'%s',%n"
+                               + "        fileName.......:'%s',%n"
+                               + "        virtualPath....:'%s',%n"
+                               + "        destinationPath:'%s',%n"
+                               + "        size...........:'%s',%n"
+                               + "        type...........:'%s'%n"
+                               + "       }";
         return String.format(formato,
                              author,
                              creationDate,
