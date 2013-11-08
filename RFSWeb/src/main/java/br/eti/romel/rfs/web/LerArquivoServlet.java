@@ -7,6 +7,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Map;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -48,7 +49,7 @@ public class LerArquivoServlet extends HttpServlet {
         out.println("</table>");
         try {
 
-            System.out.print(request.getInputStream().toString());
+            Logger.getAnonymousLogger().info(request.getInputStream().toString());
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
